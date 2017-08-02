@@ -7,4 +7,8 @@ When(/^add a budget of month "([^"]*)" with amount (\d+)$/) do |month, amount|
 end
 
 Then(/^list budgets as below$/) do |table|
+  wait_for_text 'Dashboard'
+  budget = table.hashes[0]
+  wait_for_text budget['month']
+  wait_for_text budget['amount']
 end
