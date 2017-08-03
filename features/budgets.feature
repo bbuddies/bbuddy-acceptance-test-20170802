@@ -12,6 +12,6 @@ Feature: Budget
       | month   | amount |
       | 2017-08 | 1000   |
     When add a budget of month "2017-08" with amount 3000
-    Then list budgets is as below
+    Then list budgets as below
       | month   | amount |
       | 2017-08 | 3000   |

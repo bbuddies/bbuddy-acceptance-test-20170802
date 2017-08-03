@@ -7,7 +7,7 @@ When(/^add a budget of month "([^"]*)" with amount (\d+)$/) do |month, amount|
 end
 
 Then(/^list budgets as below$/) do |table|
-  wait_for_text 'Dashboard'
+  wait_for_text_does_not_exist 'Save'
   budget = table.hashes[0]
   wait_for_text budget['month']
   wait_for_text budget['amount']
@@ -20,18 +20,4 @@ Given(/^the original data is as below$/) do |table|
     clear_then_enter_text('month', budget['month'])
     clear_then_enter_text('amount', budget['amount'])
     touch('Save')
-
-    wait_for_text 'Dashboard'
-   
-    touch('Budgets')
-    touch('Add')
-    budget = table.hashes[0]
-    clear_then_enter_text('month', budget['month'])
-    clear_then_enter_text('amount', budget['amount'])
-    touch('Save')
-   
-    wait_for_text 'Dashboard'
-    budget = table.hashes[0]
-    wait_for_text budget['month']
-    wait_for_text budget['amount']
 end
