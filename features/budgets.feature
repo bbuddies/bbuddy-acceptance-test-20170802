@@ -15,3 +15,17 @@ Feature: Budget
     Then list budgets as below
       | month   | amount |
       | 2017-08 | 3000   |
+
+  Scenario: we'd like to query the total budget between the specific time region
+    Given the original data is as below
+      | month   | amount |
+      | 2017-08 | 31000   |
+    When query the budget from 2017-08-01 to 2017-08-31 
+    Then budgets is 31000
+
+  Scenario: we'd like to query the total budget between the specific time region
+    Given the original data is as below
+      | month   | amount |
+      | 2017-08 | 31000   |
+    When query the budget from 2017-08-01 to 2017-08-10
+    Then budgets is 10000
